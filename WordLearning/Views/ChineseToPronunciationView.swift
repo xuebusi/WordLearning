@@ -26,8 +26,9 @@ struct ChineseToPronunciationView: View {
             
             VStack(spacing: 15) {
                 ForEach(viewModel.options) { option in
-                    PronunciationOptionButton(
-                        word: option,
+                    AnswerButton(
+                        text: option.english,
+                        tailIcon: "speaker.wave.2.fill",
                         isSelected: viewModel.selectedAnswer?.id == option.id,
                         isCorrect: viewModel.isAnswerCorrect,
                         action: {
@@ -76,53 +77,4 @@ struct ChineseToPronunciationView: View {
 
 #Preview {
     ChineseToPronunciationView(viewModel: ChineseToPronunciationViewModel(wordList: sampleWords))
-}
-
-struct PronunciationOptionButton: View {
-    let word: WordItem
-    let isSelected: Bool
-    let isCorrect: Bool?
-    let action: () -> Void
-    
-    var body: some View {
-        Button(action: action) {
-            HStack {
-                Text(word.english)
-                    .font(.headline)
-                Spacer()
-                Image(systemName: "speaker.wave.2")
-            }
-            .padding()
-            .frame(maxWidth: .infinity)
-            .background(backgroundColor)
-            .foregroundColor(foregroundColor)
-            .cornerRadius(10)
-            .overlay(
-                RoundedRectangle(cornerRadius: 10)
-                    .stroke(borderColor, lineWidth: 2)
-            )
-        }
-        .disabled(isCorrect != nil)
-    }
-    
-    private var backgroundColor: Color {
-        if isSelected {
-            return isCorrect == true ? Color.green.opacity(0.2) : Color.red.opacity(0.2)
-        }
-        return Color.clear
-    }
-    
-    private var foregroundColor: Color {
-        if isSelected {
-            return isCorrect == true ? .green : .red
-        }
-        return .primary
-    }
-    
-    private var borderColor: Color {
-        if isSelected {
-            return isCorrect == true ? .green : .red
-        }
-        return .gray
-    }
 }

@@ -35,6 +35,7 @@ struct PronunciationToChineseView: View {
                 ForEach(viewModel.options, id: \.self) { option in
                     AnswerButton(
                         text: option,
+                        tailIcon: "speaker.wave.2.fill",
                         isSelected: viewModel.selectedAnswer == option,
                         isCorrect: viewModel.isAnswerCorrect,
                         action: {
