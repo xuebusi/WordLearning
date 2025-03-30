@@ -7,7 +7,6 @@
 
 import SwiftUI
 
-// 更新App文件
 @main
 struct WordLearningApp: App {
     @State private var currentMode = 0
@@ -19,6 +18,7 @@ struct WordLearningApp: App {
                     Text("英→中").tag(0)
                     Text("中→英").tag(1)
                     Text("听音→中").tag(2)
+                    Text("中→听音").tag(3)
                 }
                 .pickerStyle(SegmentedPickerStyle())
                 .padding()
@@ -31,6 +31,8 @@ struct WordLearningApp: App {
                         ChineseToEnglishView(viewModel: ChineseToEnglishViewModel(wordList: sampleWords))
                     case 2:
                         PronunciationToChineseView(viewModel: PronunciationToChineseViewModel(wordList: sampleWords))
+                    case 3:
+                        ChineseToPronunciationView(viewModel: ChineseToPronunciationViewModel(wordList: sampleWords))
                     default:
                         WordQuizView(viewModel: WordQuizViewModel(wordList: sampleWords))
                     }
