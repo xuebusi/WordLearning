@@ -23,7 +23,7 @@ struct CustomButton: View{
                 .foregroundColor(.white)
                 .background {
                     RoundedRectangle(cornerRadius: 12, style: .continuous)
-                        .fill(Color("Pink"))
+                        .fill(Color("OK"))
                 }
         }
     }

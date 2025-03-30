@@ -41,7 +41,7 @@ struct WordLearningApp: App {
                             WordQuizView(viewModel: WordQuizViewModel(wordList: sampleWords))
                         }
                     }
-                    .animation(.easeInOut, value: currentMode)
+                    //.animation(.easeInOut, value: currentMode)
                 }
                 .navigationTitle("单词学习")
                 .navigationBarTitleDisplayMode(.inline)

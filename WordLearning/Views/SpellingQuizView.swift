@@ -12,18 +12,13 @@ struct SpellingQuizView: View {
     @FocusState private var isInputFocused: Bool
     
     var body: some View {
-        VStack(spacing: 20) {
+        VStack(spacing: 15) {
             Text("拼写正确的英文单词")
-                .font(.title)
+                .font(.title2)
                 .padding()
             
             Text(viewModel.currentWord.chinese)
-                .font(.system(size: 32, weight: .bold))
-                .padding()
-                .frame(maxWidth: .infinity)
-                .background(Color.indigo.opacity(0.1))
-                .cornerRadius(10)
-                .padding(.horizontal)
+                .font(.largeTitle.bold())
             
             TextFieldWithHint(
                 title: "输入英文单词",

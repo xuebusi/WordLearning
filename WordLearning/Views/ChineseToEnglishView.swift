@@ -11,18 +11,13 @@ struct ChineseToEnglishView: View {
     @StateObject var viewModel: ChineseToEnglishViewModel
     
     var body: some View {
-        VStack(spacing: 20) {
+        VStack(spacing: 15) {
             Text("选择正确的英文单词")
-                .font(.title)
+                .font(.title2)
                 .padding()
             
             Text(viewModel.currentWord.chinese)
-                .font(.system(size: 32, weight: .bold))
-                .padding()
-                .frame(maxWidth: .infinity)
-                .background(Color.orange.opacity(0.1))
-                .cornerRadius(10)
-                .padding(.horizontal)
+                .font(.largeTitle.bold())
             
             VStack(spacing: 15) {
                 ForEach(viewModel.options, id: \.self) { option in
@@ -39,12 +34,11 @@ struct ChineseToEnglishView: View {
             }
             .padding(.horizontal)
             
-            if viewModel.isAnswerCorrect != nil {
-                CustomButton(title: "下一题", onClick: {
-                    viewModel.generateQuestion()
-                })
-                .padding(.horizontal)
-            }
+            CustomButton(title: "下一题", onClick: {
+                viewModel.generateQuestion()
+            })
+            .padding(.horizontal)
+            .disabled(viewModel.isAnswerCorrect == nil)
         }
     }
 }

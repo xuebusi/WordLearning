@@ -11,17 +11,14 @@ struct WordQuizView: View {
     @StateObject var viewModel: WordQuizViewModel
     
     var body: some View {
-        VStack(spacing: 20) {
+        VStack(spacing: 15) {
             Text("选择正确的中文翻译")
-                .font(.title)
+                .font(.title2)
                 .padding()
             
             Text(viewModel.currentWord.english)
-                .font(.system(size: 32, weight: .bold))
-                .padding()
+                .font(.largeTitle.bold())
                 .frame(maxWidth: .infinity)
-                .background(Color.blue.opacity(0.1))
-                .cornerRadius(10)
                 .padding(.horizontal)
             
             VStack(spacing: 12) {
@@ -37,19 +34,17 @@ struct WordQuizView: View {
                     )
                 }
             }
-            .padding(15)
+            .padding(.horizontal, 15)
             .background {
                 RoundedRectangle(cornerRadius: 20, style: .continuous)
                     .fill(.white)
             }
             
-            if viewModel.isAnswerCorrect != nil {
-                
-                CustomButton(title: "下一题", onClick: {
-                    viewModel.generateQuestion()
-                })
-                .padding(.horizontal)
-            }
+            CustomButton(title: "下一题", onClick: {
+                viewModel.generateQuestion()
+            })
+            .padding(.horizontal)
+            .disabled(viewModel.isAnswerCorrect == nil)
         }
     }
 }
