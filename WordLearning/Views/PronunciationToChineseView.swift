@@ -12,10 +12,6 @@ struct PronunciationToChineseView: View {
     
     var body: some View {
         VStack(spacing: 15) {
-            Text("听发音选择正确的中文翻译")
-                .font(.title2)
-                .padding()
-            
             Button(action: {
                 viewModel.speakWord()
             }) {
@@ -25,7 +21,6 @@ struct PronunciationToChineseView: View {
                     .padding(25)
                     .background(Circle().fill(Color.purple.opacity(0.1)))
             }
-            .padding()
             
             VStack(spacing: 15) {
                 ForEach(viewModel.options, id: \.self) { option in
@@ -47,6 +42,8 @@ struct PronunciationToChineseView: View {
             .padding(.horizontal)
             .disabled(viewModel.isAnswerCorrect == nil)
         }
+        .navigationTitle("听发音选择正确的中文翻译")
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 

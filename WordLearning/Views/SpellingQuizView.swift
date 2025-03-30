@@ -13,12 +13,9 @@ struct SpellingQuizView: View {
     
     var body: some View {
         VStack(spacing: 15) {
-            Text("拼写正确的英文单词")
-                .font(.title2)
-                .padding()
-            
             Text(viewModel.currentWord.chinese)
                 .font(.largeTitle.bold())
+                .padding(.vertical)
             
             TextFieldWithHint(
                 title: "输入英文单词",
@@ -58,6 +55,8 @@ struct SpellingQuizView: View {
             .padding(.horizontal)
             .disabled(viewModel.userInput.isEmpty && viewModel.isAnswerCorrect == nil)
         }
+        .navigationTitle("拼写正确的英文单词")
+        .navigationBarTitleDisplayMode(.inline)
         .onSubmit {
             if !viewModel.userInput.isEmpty {
                 viewModel.checkAnswer()

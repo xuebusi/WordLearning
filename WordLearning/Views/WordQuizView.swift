@@ -12,16 +12,11 @@ struct WordQuizView: View {
     
     var body: some View {
         VStack(spacing: 15) {
-            Text("选择正确的中文翻译")
-                .font(.title2)
-                .padding()
-            
             Text(viewModel.currentWord.english)
                 .font(.largeTitle.bold())
-                .frame(maxWidth: .infinity)
-                .padding(.horizontal)
+                .padding(.vertical)
             
-            VStack(spacing: 12) {
+            VStack(spacing: 15) {
                 ForEach(viewModel.options, id: \.self) { option in
                     AnswerButton(
                         text: option,
@@ -46,6 +41,8 @@ struct WordQuizView: View {
             .padding(.horizontal)
             .disabled(viewModel.isAnswerCorrect == nil)
         }
+        .navigationTitle("选择正确的中文翻译")
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 

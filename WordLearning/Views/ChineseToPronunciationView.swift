@@ -12,13 +12,10 @@ struct ChineseToPronunciationView: View {
     
     var body: some View {
         VStack(spacing: 15) {
-            Text("根据中文选择正确的发音")
-                .font(.title2)
-                .padding()
-            
             HStack {
                 Text(viewModel.currentWord.chinese)
                     .font(.largeTitle.bold())
+                    .padding(.vertical)
                 
                 Button(action: {
                     viewModel.playCorrectPronunciation()
@@ -56,6 +53,8 @@ struct ChineseToPronunciationView: View {
             .padding(.horizontal)
             .disabled(viewModel.isAnswerCorrect == nil)
         }
+        .navigationTitle("根据中文选择正确的发音")
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 

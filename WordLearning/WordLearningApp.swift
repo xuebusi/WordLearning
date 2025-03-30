@@ -25,6 +25,8 @@ struct WordLearningApp: App {
                     .pickerStyle(SegmentedPickerStyle())
                     .padding()
                     
+                    Spacer()
+                    
                     Group {
                         switch currentMode {
                         case 0:
@@ -41,10 +43,9 @@ struct WordLearningApp: App {
                             WordQuizView(viewModel: WordQuizViewModel(wordList: sampleWords))
                         }
                     }
-                    //.animation(.easeInOut, value: currentMode)
+                    
+                    Spacer()
                 }
-                .navigationTitle("单词学习")
-                .navigationBarTitleDisplayMode(.inline)
             }
         }
     }

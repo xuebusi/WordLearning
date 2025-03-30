@@ -12,12 +12,9 @@ struct ChineseToEnglishView: View {
     
     var body: some View {
         VStack(spacing: 15) {
-            Text("选择正确的英文单词")
-                .font(.title2)
-                .padding()
-            
             Text(viewModel.currentWord.chinese)
                 .font(.largeTitle.bold())
+                .padding(.vertical)
             
             VStack(spacing: 15) {
                 ForEach(viewModel.options, id: \.self) { option in
@@ -40,6 +37,8 @@ struct ChineseToEnglishView: View {
             .padding(.horizontal)
             .disabled(viewModel.isAnswerCorrect == nil)
         }
+        .navigationTitle("选择正确的英文单词")
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 
