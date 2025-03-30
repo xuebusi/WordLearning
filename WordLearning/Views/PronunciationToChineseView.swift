@@ -47,19 +47,15 @@ struct PronunciationToChineseView: View {
             .padding(.horizontal)
             
             if viewModel.isAnswerCorrect != nil {
-                Button(action: {
+                CustomButton(title: "下一题", onClick: {
                     viewModel.generateQuestion()
-                }) {
-                    Text("下一题")
-                        .font(.headline)
-                        .padding()
-                        .frame(maxWidth: .infinity)
-                        .background(Color.purple)
-                        .foregroundColor(.white)
-                        .cornerRadius(10)
-                }
+                })
                 .padding(.horizontal)
             }
         }
     }
+}
+
+#Preview {
+    PronunciationToChineseView(viewModel: PronunciationToChineseViewModel(wordList: sampleWords))
 }

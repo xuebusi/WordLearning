@@ -57,17 +57,9 @@ struct ChineseToPronunciationView: View {
                     }
                     .padding(.horizontal)
                     
-                    Button(action: {
+                    CustomButton(title: "下一题", onClick: {
                         viewModel.generateQuestion()
-                    }) {
-                        Text("下一题")
-                            .font(.headline)
-                            .padding()
-                            .frame(maxWidth: .infinity)
-                            .background(Color.green)
-                            .foregroundColor(.white)
-                            .cornerRadius(10)
-                    }
+                    })
                     .padding(.horizontal)
                 }
             }

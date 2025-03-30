@@ -53,21 +53,13 @@ struct SpellingQuizView: View {
                     .padding(.top, 5)
             }
             
-            Button(action: {
+            CustomButton(title: viewModel.isAnswerCorrect == nil ? "提交" : "下一题", onClick: {
                 if viewModel.isAnswerCorrect == nil {
                     viewModel.checkAnswer()
                 } else {
                     viewModel.generateQuestion()
                 }
-            }) {
-                Text(viewModel.isAnswerCorrect == nil ? "提交" : "下一题")
-                    .font(.headline)
-                    .padding()
-                    .frame(maxWidth: .infinity)
-                    .background(buttonBackground)
-                    .foregroundColor(.white)
-                    .cornerRadius(10)
-            }
+            })
             .padding(.horizontal)
             .disabled(viewModel.userInput.isEmpty && viewModel.isAnswerCorrect == nil)
         }
