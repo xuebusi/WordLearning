@@ -26,5 +26,7 @@ let sampleWords = [
     WordItem(english: "Watermelon", chinese: "西瓜", pronunciation: "ˈwɔːtəmelən"),
     WordItem(english: "Strawberry", chinese: "草莓", pronunciation: "ˈstrɔːbəri"),
     WordItem(english: "Pineapple", chinese: "菠萝", pronunciation: "ˈpaɪnæpl"),
-    WordItem(english: "Peach", chinese: "桃子", pronunciation: "piːtʃ")
+    WordItem(english: "Peach", chinese: "桃子", pronunciation: "piːtʃ"),
+    WordItem(english: "Pear", chinese: "梨", pronunciation: "peər"),
+    WordItem(english: "Mango", chinese: "芒果", pronunciation: "ˈmæŋɡoʊ")
 ]
